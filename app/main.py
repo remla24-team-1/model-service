@@ -1,5 +1,9 @@
 from flask import Flask, request
 from flasgger import Swagger
+from lib import preprocess
+
+from tensorflow.keras.models import load_model
+
 app = Flask(__name__) 
 swagger = Swagger(app)
 
@@ -18,8 +22,13 @@ def predict():
     type: string
     example: This is an example msg.
     description: Some result """
-    msg = request.get_json().get('msg') 
-    return { "result": "Message was: " + msg, }
+
+    urls = request.get_json().get('urls')
+    tokenized = preprocess(urls)
+    raw_query_result = model.predict(tokenized)
+    print(raw_query_result)
+    return { "result": raw_query_result.tolist() }
 
 if __name__ == "__main__":
+    model = load_model("app/phishing_model.keras")
     app.run(host="0.0.0.0", port=8080, debug=True)
