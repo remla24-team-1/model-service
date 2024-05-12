@@ -1,11 +1,12 @@
 from flask import Flask, request
 from flasgger import Swagger
 from lib import preprocess
-
 from tensorflow.keras.models import load_model
 
 app = Flask(__name__) 
 swagger = Swagger(app)
+
+model = load_model("models/phishing_model.keras")
 
 @app.route('/', methods=['POST']) 
 def predict():
@@ -30,5 +31,4 @@ def predict():
     return { "result": raw_query_result.tolist() }
 
 if __name__ == "__main__":
-    model = load_model("app/phishing_model.keras")
     app.run(host="0.0.0.0", port=8080, debug=True)

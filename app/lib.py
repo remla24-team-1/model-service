@@ -2,6 +2,8 @@ from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 
+## TODO: This functionality should NOT be part of the final repo, but in lib-ml instead.
+
 ## open config.yml
 
 def preprocess(arr):
