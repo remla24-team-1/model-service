@@ -12,7 +12,7 @@ RUN mkdir /root/models
 RUN wget https://github.com/remla24-team-1/model-training/raw/main/models/phishing_model.keras -P /root/models/
 
 COPY config /root/config
-
+EXPOSE 6788:6788
 #ENTRYPOINT ["uwsgi"]
 #CMD ["uwsgi config/wsgi_main.ini"]
 #ENTRYPOINT ["bash"]

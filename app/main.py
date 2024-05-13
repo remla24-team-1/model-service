@@ -11,7 +11,7 @@ model = load_model("models/phishing_model.keras")
 @app.route('/querymodel', methods=['POST']) 
 def predict():
     """
-    Make a prediction thorugh ML model about given urls 
+    Make a prediction through latest phishing model about given urls 
     ---
     consumes:
         - application/json
@@ -70,4 +70,4 @@ def predict():
     #return { "result": [i[0] > threshold for i in query_result], "probabilities": [i[0] for i in query_result]}
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=6000, debug=True)
+    app.run(host="0.0.0.0", port=6788, debug=False)
