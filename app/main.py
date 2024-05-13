@@ -1,10 +1,12 @@
 from flask import Flask, request
+from flask_cors import CORS
 from flasgger import Swagger
 from lib import preprocess
 from tensorflow.keras.models import load_model
 
 app = Flask(__name__) 
 swagger = Swagger(app)
+cors = CORS(app)
 
 model = load_model("models/phishing_model.keras")
 
@@ -70,4 +72,4 @@ def predict():
     #return { "result": [i[0] > threshold for i in query_result], "probabilities": [i[0] for i in query_result]}
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=6788, debug=False)
+    app.run(host="0.0.0.0", port=8081, debug=False)
