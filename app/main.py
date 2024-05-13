@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
 from flasgger import Swagger
-from lib import preprocess
+from remlapreprocesspy import preprocess
 from tensorflow.keras.models import load_model
 
 app = Flask(__name__) 
