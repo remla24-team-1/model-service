@@ -9,7 +9,7 @@ RUN pip install remlapreprocesspy==2.0.0
 COPY app /root/app
 # Run fetch of latest model
 RUN mkdir /root/models
-RUN wget https://github.com/remla24-team-1/model-training/raw/main/models/phishing_model.keras -P /root/models/
+RUN wget https://github.com/remla24-team-1/model-training/raw/main/models/best_phishing_model.keras -P /root/models/
 
 ENTRYPOINT ["python"]
 CMD ["app/main.py"]
