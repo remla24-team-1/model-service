@@ -8,7 +8,7 @@ app = Flask(__name__)
 swagger = Swagger(app)
 cors = CORS(app)
 
-model = load_model("models/phishing_model.keras")
+model = load_model("models/best_phishing_model.keras")
 
 @app.route('/querymodel', methods=['POST']) 
 def predict():
