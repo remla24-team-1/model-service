@@ -4,7 +4,7 @@ This repo contains the backend that works together with the [app-service](https:
 
 ## To run the backend locally for testing or for developing: 
 * First clone the repository using `git clone git@github.com:remla24-team-1/model-service.git` and access it with `cd app`.
-* Build the project using `docker build .`, and run the built image using `docker run -it -p8081:8081`.
+* Build the project using `docker build -t ghcr.io/remla24-team-1/model-service:latest .`, and run the built image using `docker run -it -p8081:8081 --rm ghcr.io/remla24-team-1/model-service:latest`.
 
 The service will be hosted at localhost. To access the service, the app frontend image is recommended to be ran. 
 The model can also queried directly when ran in this context.
